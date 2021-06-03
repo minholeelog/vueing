@@ -25,6 +25,6 @@ export default {
 
 <style scoped>
 #app {
-  padding: 20px;
+  padding: 20px 10px;
 }
 </style>

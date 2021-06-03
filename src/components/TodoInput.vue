@@ -1,7 +1,7 @@
 <template>
   <div>
     <v-form @submit.prevent="addTodo">
-      <v-text-field v-model="newTodo" />
+      <v-text-field v-model="newTodo" placeholder="Write a to do" />
       <v-btn text @click.prevent="addTodo">Add tesk</v-btn>
     </v-form>
   </div>
@@ -17,13 +17,18 @@ export default {
   methods: {
     addTodo() {
       this.$store.commit('addTodo', this.newTodo);
+      this.clearInput();
+    },
+    clearInput() {
+      this.newTodo = '';
     },
   },
 };
 </script>
 
 <style scoped>
-.v-text-field {
-  width: 50%;
+.v-form {
+  display: flex;
+  align-items: center;
 }
 </style>
