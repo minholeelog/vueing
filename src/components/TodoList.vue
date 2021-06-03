@@ -1,12 +1,12 @@
 <template>
-  <div>
-    <ul>
-      <li v-for="(todo, index) in todos" :key="todo.title">
-        <span>{{ todo.title }}</span>
+  <ul class="d-flex row">
+    <li v-for="(todo, index) in todos" :key="todo.title">
+      <v-card class="d-flex justify-space-between">
+        <v-card-title>{{ todo.title }}</v-card-title>
         <v-icon @click="removeTodo(todo, index)">remove_circle</v-icon>
-      </li>
-    </ul>
-  </div>
+      </v-card>
+    </li>
+  </ul>
 </template>
 
 <script>
@@ -32,14 +32,13 @@ export default {
 ul {
   width: 100%;
   padding: 10px 14px;
-  display: flex;
-  justify-content: center;
 }
 li {
   list-style: none;
   width: 100%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  margin-bottom: 12px;
+}
+.v-card {
+  padding: 0 10px;
 }
 </style>
