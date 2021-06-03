@@ -5,6 +5,7 @@
       <TodoInput />
       <TodoList />
     </v-main>
+    <AppFooter />
   </v-app>
 </template>
 
@@ -12,6 +13,7 @@
 import AppHeader from '@/components/AppHeader';
 import TodoInput from '@/components/TodoInput';
 import TodoList from '@/components/TodoList';
+import AppFooter from '@/components/AppFooter';
 
 export default {
   name: 'App',
@@ -19,12 +21,8 @@ export default {
     AppHeader,
     TodoInput,
     TodoList,
+    AppFooter,
   },
+  AppFooter,
 };
 </script>
-
-<style scoped>
-#app {
-  padding: 20px 10px;
-}
-</style>

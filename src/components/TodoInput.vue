@@ -41,4 +41,10 @@ export default {
 };
 </script>
 
-<style scoped></style>
+<style scoped>
+.layout {
+  max-width: 80vw;
+  padding: 20px;
+  margin: 0 auto;
+}
+</style>

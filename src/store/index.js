@@ -23,6 +23,7 @@ const storedTodo = {
 export default new Vuex.Store({
   state: {
     todos: storedTodo.fetchTodo(),
+    github: 'https://github.com/minholeelog',
   },
   mutations: {
     addTodo(state, title) {
