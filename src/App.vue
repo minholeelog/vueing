@@ -1,25 +1,30 @@
 <template>
-  <div id="app">
+  <v-app>
     <AppHeader />
-  </div>
+    <v-main>
+      <TodoInput />
+      <TodoList />
+    </v-main>
+  </v-app>
 </template>
 
 <script>
-import AppHeader from './components/AppHeader.vue';
+import AppHeader from '@/components/AppHeader';
+import TodoInput from '@/components/TodoInput';
+import TodoList from '@/components/TodoList';
 
 export default {
   name: 'App',
   components: {
     AppHeader,
+    TodoInput,
+    TodoList,
   },
 };
 </script>
 
-<style>
-@import url('https://fonts.googleapis.com/css2?family=Sunflower:wght@300;500&display=swap');
-
+<style scoped>
 #app {
-  font-family: 'Sunflower', sans-serif;
-  text-align: center;
+  padding: 20px;
 }
 </style>
