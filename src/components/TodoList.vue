@@ -1,6 +1,6 @@
 <template>
   <ul class="d-flex row">
-    <li v-for="(todo, index) in todos" :key="todo.title">
+    <li v-for="(todo, index) in todos" :key="todo.title + index">
       <v-card class="d-flex justify-space-between">
         <v-card-title>{{ todo.title }}</v-card-title>
         <v-icon @click="removeTodo(todo, index)">remove_circle</v-icon>
