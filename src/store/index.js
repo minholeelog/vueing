@@ -38,7 +38,9 @@ export default new Vuex.Store({
 
     removeTodo(state, payload) {
       localStorage.removeItem(payload.todo.title);
-      state.todos.splice(payload.index, 1);
+      // 기존 코드: state.todos.splice(payload.index, 1);
+      // payload.index = undefined 이기 때문에 splice 범위를 제대로 받지 못하여 에러 발생
+      state.todos.splice(payload.currentTodoObj.index, 1);
     },
   },
   actions: {},

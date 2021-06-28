@@ -18,11 +18,11 @@ export default {
   },
   methods: {
     removeTodo(todo, index) {
-      const todoObj = {
+      const currentTodoObj = {
         todo,
         index,
       };
-      this.$store.commit('removeTodo', { todo, todoObj });
+      this.$store.commit('removeTodo', { todo, currentTodoObj });
     },
   },
 };
