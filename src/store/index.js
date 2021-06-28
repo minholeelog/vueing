@@ -30,6 +30,7 @@ export default new Vuex.Store({
       const todoObj = {
         title,
         completed: false,
+        id: new Date().getTime(),
       };
       localStorage.setItem(title, JSON.stringify(todoObj));
       state.todos.push(todoObj);
