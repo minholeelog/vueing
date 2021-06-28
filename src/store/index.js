@@ -38,12 +38,12 @@ export default new Vuex.Store({
     },
 
     toggleComplete(state, payload) {
-      const { todo, currentTodoObj } = payload;      
+      const { todo, currentTodoObj } = payload;
       const todoObj = JSON.parse(localStorage.getItem(todo.title));
       const newTodoObj = {
         ...todoObj,
         completed: !todoObj.completed,
-      }
+      };
       localStorage.setItem(todo.title, JSON.stringify(newTodoObj));
       state.todos.splice(currentTodoObj.index, 1, newTodoObj);
     },
