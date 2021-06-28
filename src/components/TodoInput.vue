@@ -5,6 +5,7 @@
       ref="form"
       v-model="valid"
       @submit.prevent="addTodo"
+      lazy-validation
     >
       <v-text-field
         :rules="newTodoRule"
