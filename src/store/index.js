@@ -31,15 +31,25 @@ export default new Vuex.Store({
         title,
         completed: false,
         id: new Date().getTime(),
+        icon: 'check_box_outline_blank',
       };
       localStorage.setItem(title, JSON.stringify(todoObj));
       state.todos.push(todoObj);
     },
 
+    toggleComplete(state, payload) {
+      const { todo, currentTodoObj } = payload;      
+      const todoObj = JSON.parse(localStorage.getItem(todo.title));
+      const newTodoObj = {
+        ...todoObj,
+        completed: !todoObj.completed,
+      }
+      localStorage.setItem(todo.title, JSON.stringify(newTodoObj));
+      state.todos.splice(currentTodoObj.index, 1, newTodoObj);
+    },
+
     removeTodo(state, payload) {
       localStorage.removeItem(payload.todo.title);
-      // 기존 코드: state.todos.splice(payload.index, 1);
-      // payload.index = undefined 이기 때문에 splice 범위를 제대로 받지 못하여 에러 발생
       state.todos.splice(payload.currentTodoObj.index, 1);
     },
   },

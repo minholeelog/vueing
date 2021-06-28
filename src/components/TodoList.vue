@@ -2,7 +2,11 @@
   <ul class="d-flex row">
     <li v-for="(todo, index) in todos" :key="todo.id">
       <v-card class="d-flex justify-space-between">
-        <v-card-title>{{ todo.title }}</v-card-title>
+        <div class="d-flex justify-space-around align-center">
+          <v-icon v-if="todo.completed" @click="toggleComplete(todo, index)">done</v-icon>
+          <v-icon v-else @click="toggleComplete(todo, index)">check_box_outline_blank</v-icon>
+          <v-card-title :class="{ completed: todo.completed }">{{ todo.title }}</v-card-title>
+        </div>
         <v-icon @click="removeTodo(todo, index)">remove_circle</v-icon>
       </v-card>
     </li>
@@ -24,6 +28,13 @@ export default {
       };
       this.$store.commit('removeTodo', { todo, currentTodoObj });
     },
+    toggleComplete(todo, index) {
+      const currentTodoObj = {
+        todo,
+        index,
+      };
+      this.$store.commit('toggleComplete', { todo, currentTodoObj });
+    }
   },
 };
 </script>
@@ -40,5 +51,9 @@ li {
 }
 .v-card {
   padding: 0 10px;
+}
+.completed {
+  text-decoration: line-through;
+  color: #8C3048;
 }
 </style>
